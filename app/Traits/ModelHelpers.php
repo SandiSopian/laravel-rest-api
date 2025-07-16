@@ -2,21 +2,10 @@
 
 namespace App\Traits;
 
-
 trait ModelHelpers
 {
-    public function isModel(): bool
+    public function matches($model): bool
     {
-        return true;
-    }
-
-    public function isModelOfType(string $type): bool
-    {
-        return $this->getModelType() === $type;
-    }
-
-    public function getModelType(): string
-    {
-        return class_basename($this);
+        return $this->id === $model->id;
     }
 }
